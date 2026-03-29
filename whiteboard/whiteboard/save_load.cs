@@ -12,9 +12,34 @@ namespace whiteboard
 {
     internal class save_load
     {
+        Form1 formVar;
+        
+        internal void ValuePassThrough(Form1 formHandler)
+        {
+            formVar = formHandler;
+        }
+
+        internal class noteFile
+        {
+            public int ID { get; set; }
+            public int X { get; set; }
+            public int Y { get; set; }
+
+            public int W { get; set; }
+
+            public int H { get; set; }
+
+            public string Text { get; set; } = string.Empty;
+
+            public int Type { get; set; }
+
+            public string function { get; set; } = string.Empty;
+        }
 
         internal void saveSate(List<MyRichTextBox> ListOfTextBox)
         {
+            Thread ArraySanityThread = new Thread(formVar.ArraySanityCheck);
+            ArraySanityThread.Start();
             Debug.WriteLine("opened save func from another file");
             //opes save dialog 
             using var sfd = new SaveFileDialog();
