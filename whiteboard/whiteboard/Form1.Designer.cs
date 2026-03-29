@@ -28,14 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Console = new RichTextBox();
             SuspendLayout();
+            // 
+            // Console
+            // 
+            Console.BackColor = SystemColors.WindowText;
+            Console.BorderStyle = BorderStyle.None;
+            Console.DetectUrls = false;
+            Console.Font = new Font("Segoe UI Variable Small Semibol", 9F);
+            Console.ForeColor = Color.FromArgb(0, 64, 0);
+            Console.Location = new Point(4, 11);
+            Console.Margin = new Padding(3, 2, 3, 2);
+            Console.Name = "Console";
+            Console.ReadOnly = true;
+            Console.ScrollBars = RichTextBoxScrollBars.Vertical;
+            Console.Size = new Size(350, 225);
+            Console.TabIndex = 0;
+            Console.Text = "";
+            Console.TextChanged += Console_TextChanged;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.WindowFrame;
-            ClientSize = new Size(1784, 812);
+            ClientSize = new Size(1684, 812);
+            Controls.Add(Console);
             Name = "Form1";
             Text = "WhiteBoard";
             Load += Form1_Load;
@@ -43,5 +62,7 @@
         }
 
         #endregion
+
+        private RichTextBox Console;
     }
 }

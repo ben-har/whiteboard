@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ben\\Desktop\\CS hw\\whiteboard\\whiteboard\\whiteboard.csproj": {}
+    "C:\\Users\\ben\\Downloads\\whiteboard\\whiteboard\\whiteboard.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ben\\Desktop\\CS hw\\whiteboard\\whiteboard\\whiteboard.csproj": {
+    "C:\\Users\\ben\\Downloads\\whiteboard\\whiteboard\\whiteboard.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ben\\Desktop\\CS hw\\whiteboard\\whiteboard\\whiteboard.csproj",
+        "projectUniqueName": "C:\\Users\\ben\\Downloads\\whiteboard\\whiteboard\\whiteboard.csproj",
         "projectName": "whiteboard",
-        "projectPath": "C:\\Users\\ben\\Desktop\\CS hw\\whiteboard\\whiteboard\\whiteboard.csproj",
+        "projectPath": "C:\\Users\\ben\\Downloads\\whiteboard\\whiteboard\\whiteboard.csproj",
         "packagesPath": "C:\\Users\\ben\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ben\\Desktop\\CS hw\\whiteboard\\whiteboard\\obj\\",
+        "outputPath": "C:\\Users\\ben\\Downloads\\whiteboard\\whiteboard\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
