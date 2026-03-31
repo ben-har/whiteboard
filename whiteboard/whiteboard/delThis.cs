@@ -12,7 +12,7 @@ namespace whiteboard
     internal class delThis
     {
         
-        internal void DelLast(List<MyRichTextBox> textLastOne, int boxCounter, Form1 myform)
+        internal void DelLast(List<MyRichTextBox> textLastOne, Form1 myform)
         {
 
             if (textLastOne.Count == 0) return;
@@ -27,7 +27,7 @@ namespace whiteboard
             textLastOne.RemoveAt(textLastOne.Count - 1);
 
 
-            boxCounter--;
+           
         }
     }
 }

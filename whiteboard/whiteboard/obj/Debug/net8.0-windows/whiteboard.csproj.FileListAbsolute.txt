@@ -46,3 +46,19 @@ C:\Users\ben\Downloads\whiteboard\whiteboard\obj\Debug\net8.0-windows\refint\whi
 C:\Users\ben\Downloads\whiteboard\whiteboard\obj\Debug\net8.0-windows\whiteboard.pdb
 C:\Users\ben\Downloads\whiteboard\whiteboard\obj\Debug\net8.0-windows\whiteboard.genruntimeconfig.cache
 C:\Users\ben\Downloads\whiteboard\whiteboard\obj\Debug\net8.0-windows\ref\whiteboard.dll
+C:\Users\ccqui\Downloads\whiteboard-one-time-pad (1)\whiteboard-one-time-pad\whiteboard\whiteboard\bin\Debug\net8.0-windows\whiteboard.exe
+C:\Users\ccqui\Downloads\whiteboard-one-time-pad (1)\whiteboard-one-time-pad\whiteboard\whiteboard\bin\Debug\net8.0-windows\whiteboard.deps.json
+C:\Users\ccqui\Downloads\whiteboard-one-time-pad (1)\whiteboard-one-time-pad\whiteboard\whiteboard\bin\Debug\net8.0-windows\whiteboard.runtimeconfig.json
+C:\Users\ccqui\Downloads\whiteboard-one-time-pad (1)\whiteboard-one-time-pad\whiteboard\whiteboard\bin\Debug\net8.0-windows\whiteboard.dll
+C:\Users\ccqui\Downloads\whiteboard-one-time-pad (1)\whiteboard-one-time-pad\whiteboard\whiteboard\bin\Debug\net8.0-windows\whiteboard.pdb
+C:\Users\ccqui\Downloads\whiteboard-one-time-pad (1)\whiteboard-one-time-pad\whiteboard\whiteboard\obj\Debug\net8.0-windows\whiteboard.Form1.resources
+C:\Users\ccqui\Downloads\whiteboard-one-time-pad (1)\whiteboard-one-time-pad\whiteboard\whiteboard\obj\Debug\net8.0-windows\whiteboard.csproj.GenerateResource.cache
+C:\Users\ccqui\Downloads\whiteboard-one-time-pad (1)\whiteboard-one-time-pad\whiteboard\whiteboard\obj\Debug\net8.0-windows\whiteboard.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ccqui\Downloads\whiteboard-one-time-pad (1)\whiteboard-one-time-pad\whiteboard\whiteboard\obj\Debug\net8.0-windows\whiteboard.AssemblyInfoInputs.cache
+C:\Users\ccqui\Downloads\whiteboard-one-time-pad (1)\whiteboard-one-time-pad\whiteboard\whiteboard\obj\Debug\net8.0-windows\whiteboard.AssemblyInfo.cs
+C:\Users\ccqui\Downloads\whiteboard-one-time-pad (1)\whiteboard-one-time-pad\whiteboard\whiteboard\obj\Debug\net8.0-windows\whiteboard.csproj.CoreCompileInputs.cache
+C:\Users\ccqui\Downloads\whiteboard-one-time-pad (1)\whiteboard-one-time-pad\whiteboard\whiteboard\obj\Debug\net8.0-windows\whiteboard.dll
+C:\Users\ccqui\Downloads\whiteboard-one-time-pad (1)\whiteboard-one-time-pad\whiteboard\whiteboard\obj\Debug\net8.0-windows\refint\whiteboard.dll
+C:\Users\ccqui\Downloads\whiteboard-one-time-pad (1)\whiteboard-one-time-pad\whiteboard\whiteboard\obj\Debug\net8.0-windows\whiteboard.pdb
+C:\Users\ccqui\Downloads\whiteboard-one-time-pad (1)\whiteboard-one-time-pad\whiteboard\whiteboard\obj\Debug\net8.0-windows\whiteboard.genruntimeconfig.cache
+C:\Users\ccqui\Downloads\whiteboard-one-time-pad (1)\whiteboard-one-time-pad\whiteboard\whiteboard\obj\Debug\net8.0-windows\ref\whiteboard.dll

@@ -14,23 +14,22 @@ namespace whiteboard
     {
         Form1 FormHolder;
 
-        ConsoleFile Console;
 
         List<MyRichTextBox> ListOfTextBoxHolder;
 
-        int BoxCounterHolder;
+      
 
         save_load mysave = new save_load();
 
         delThis mydel = new delThis();
 
-      
+        
 
-        internal void ReturnVarsFromForm(Form1 formVar,List<MyRichTextBox> ListOfTextBoxVar,int boxCounterVar)
+        internal void ReturnVarsFromForm(Form1 formVar,List<MyRichTextBox> ListOfTextBoxVar)
         {
           FormHolder = formVar;
           ListOfTextBoxHolder = ListOfTextBoxVar;
-          BoxCounterHolder = boxCounterVar;
+         
           formVar.KeyDown -= KeyEntered;
           formVar.KeyDown += KeyEntered;
 
@@ -44,21 +43,25 @@ namespace whiteboard
             {
                 switch (e.KeyCode)
                 {
-                    case Keys.D:
-                        Console.Console_Switch();
-                        break;
+                   
                     case Keys.Enter:
                         FormHolder.mouseCreateTextBox();
                         break;
                     case Keys.Z:
-                        mydel.DelLast(ListOfTextBoxHolder, BoxCounterHolder, FormHolder);
+                        mydel.DelLast(ListOfTextBoxHolder, FormHolder);
                         break;
                     case Keys.S:
                         mysave.saveSate(ListOfTextBoxHolder);
                         break;
                     case Keys.T:
-                        mysave.loadState(ListOfTextBoxHolder, BoxCounterHolder, FormHolder);
+                        mysave.loadState(ListOfTextBoxHolder, FormHolder);
                         break;
+                    case Keys.L:
+                        Thread SanityCheckThread = new Thread(FormHolder.ArraySanityCheck);
+                        SanityCheckThread.Start();
+                        break;
+
+
 
                 }
 

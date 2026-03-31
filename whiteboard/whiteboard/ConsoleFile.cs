@@ -12,19 +12,21 @@ namespace whiteboard
     {
         const string console_Script = $" CONTROLS \n ctr enter makes a box \n ctr and D closes or opens console \n ctr and S saves the program \n ctr and L loads the program \n ctr and z deletes the last created object\n clicking on a box then pressing delete will delete that box\n clicking on a box then pressing r will resize the box \n clicking on a box and pressing m will move the box";
 
-        List<MyRichTextBox> ListOfTextBox;
+        List<MyRichTextBox> ListOfTextBoxVar;
 
-        RichTextBox Console;
+        RichTextBox ConsoleVar;
+
+       
 
 
-        internal void ReturnConsoleVar( List<MyRichTextBox> ListOfTextBoxVar, RichTextBox ConsoleVar, Form1 form)
+        internal void ReturnConsoleVar( List<MyRichTextBox> ListOfTextBoxHolder, RichTextBox ConsoleHolder, Form1 formHolder)
         {
-            ListOfTextBox = ListOfTextBoxVar;
+            ListOfTextBoxVar = ListOfTextBoxHolder;
 
-            Console = ConsoleVar;
+            ConsoleVar = ConsoleHolder;
 
-            form.KeyDown -= Console_KeyDown;
-            form.KeyDown += Console_KeyDown;
+            formHolder.KeyDown -= Console_KeyDown;
+            formHolder.KeyDown += Console_KeyDown;
 
         }
         internal void Console_KeyDown(object sender, KeyEventArgs e)
@@ -34,34 +36,39 @@ namespace whiteboard
             switch (e.KeyCode)
             {
                 case Keys.A:
-                    Console.Text += $"\nsize of array {ListOfTextBox.Count},";
-                    foreach (MyRichTextBox i in ListOfTextBox)
+                    ConsoleVar.Text += $"\nsize of array {ListOfTextBoxVar.Count},";
+                    foreach (MyRichTextBox i in ListOfTextBoxVar)
                     {
-                        Console.Text += $" {i.uniqueID}";
+                        ConsoleVar.Text += $" {i.uniqueID}";
                     }
                     break;
                 case Keys.E:
-                    Console.Text = Console.Text.Length > 0 ? Console.Text += $"\n {console_Script}" : console_Script;
+                    ConsoleVar.Text = ConsoleVar.Text.Length > 0 ? ConsoleVar.Text += $"\n {console_Script}" : console_Script;
 
                     break;
                 case Keys.C:
-                    Console.Text = string.Empty;
+                    ConsoleVar.Text = string.Empty;
                     break;
                 case Keys.P:
 
-                    foreach(MyRichTextBox i in ListOfTextBox)
+                    foreach(MyRichTextBox i in ListOfTextBoxVar)
                     {
-                        i.uniqueID = rmd.Next(0 , ListOfTextBox.Count);
+                        i.uniqueID = rmd.Next(0 , ListOfTextBoxVar.Count);
                     }
                     break;
-                
+                case Keys.V:
+                    Console_Switch();
+                    break;
+
+
+
 
             }
         }
 
         internal void Console_Switch()
         {
-            Console.Visible = !Console.Visible;
+            ConsoleVar.Visible = !ConsoleVar.Visible;
         }
 
         

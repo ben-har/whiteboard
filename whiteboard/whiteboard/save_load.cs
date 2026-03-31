@@ -38,8 +38,8 @@ namespace whiteboard
 
         internal void saveSate(List<MyRichTextBox> ListOfTextBox)
         {
-            Thread ArraySanityThread = new Thread(formVar.ArraySanityCheck);
-            ArraySanityThread.Start();
+           // Thread ArraySanityThread = new Thread(formVar.ArraySanityCheck);
+           // ArraySanityThread.Start();
             Debug.WriteLine("opened save func from another file");
             //opes save dialog 
             using var sfd = new SaveFileDialog();
@@ -71,7 +71,7 @@ namespace whiteboard
             File.WriteAllText(sfd.FileName, json);
         }
 
-        internal void loadState(List<MyRichTextBox> ListOfTextBox, int boxCounter, Form1 myform)
+        internal void loadState(List<MyRichTextBox> ListOfTextBox, Form1 myform)
         {
             using var ofd = new OpenFileDialog();
             ofd.Filter = "Whiteboard Files (*.white; *.json) | *.white; *.json";
@@ -89,7 +89,7 @@ namespace whiteboard
             //clear the tracking list
             ListOfTextBox.Clear();
 
-            boxCounter = 0;
+            
             //read the file from disk and turn it into string
             string json = File.ReadAllText(ofd.FileName);
 
@@ -104,10 +104,11 @@ namespace whiteboard
                 tb.Click += myform.myRichTextBox_Clicked;
                 tb.Location = new Point(restorie.X, restorie.Y);
                 tb.Size = new Size(restorie.W, restorie.H);
-                tb.uniqueID = restorie.ID;
+                //tb.uniqueID = boxCounter;
                 myform.Controls.Add(tb);
                 ListOfTextBox.Add(tb);
-                boxCounter++;
+                tb.uniqueID = ListOfTextBox.Count - 1;
+                
 
             }
         }

@@ -9,6 +9,8 @@ namespace whiteboard
     public partial class Form1 : Form
     {
 
+        //the box counter is now useless look into fully replacing it 
+
         List<MyRichTextBox> ListOfTextBox = new List<MyRichTextBox>();
 
         BoxControls boxcontrolsFile = new BoxControls();
@@ -19,7 +21,7 @@ namespace whiteboard
 
         drawingTools drawingFile = new drawingTools(); 
        
-        int boxCounter = 0;
+       
 
 
         int PreAdjX, PreAdjY;
@@ -52,7 +54,7 @@ namespace whiteboard
 
 
 
-            boxcontrolsFile.ReturnVarsFromForm(this, ListOfTextBox, boxCounter);
+            boxcontrolsFile.ReturnVarsFromForm(this, ListOfTextBox);
 
             consolefile.ReturnConsoleVar(ListOfTextBox, Console ,this );
 
@@ -66,7 +68,7 @@ namespace whiteboard
 
         internal void mouseCreateTextBox()
         {
-            boxcontrolsFile.ReturnVarsFromForm(this, ListOfTextBox, boxCounter);
+            boxcontrolsFile.ReturnVarsFromForm(this, ListOfTextBox);
 
             int boxAdjX = PreAdjX / 2;
             int boxAdjy = PreAdjY / 2;
@@ -78,15 +80,17 @@ namespace whiteboard
             MyRichTextBox textBox = new MyRichTextBox();
 
             textBox.Click += myRichTextBox_Clicked;
-            textBox.uniqueID = boxCounter;
+            
             textBox.Location = new Point(LocalCursor.X - boxAdjX, LocalCursor.Y - boxAdjy);
             textBox.Size = new Size(PreAdjX, PreAdjY);
 
 
             this.Controls.Add(textBox);
             ListOfTextBox.Add(textBox);
+            textBox.uniqueID = ListOfTextBox.Count - 1;
 
-            boxCounter++;
+
+           
 
 
 
@@ -97,7 +101,7 @@ namespace whiteboard
         }
         void AutoCompleteBox()
         {
-            boxcontrolsFile.ReturnVarsFromForm(this, ListOfTextBox, boxCounter);
+            boxcontrolsFile.ReturnVarsFromForm(this, ListOfTextBox);
 
             int boxAdjX = PreAdjX;
             int boxAdjy = PreAdjY;
@@ -105,15 +109,16 @@ namespace whiteboard
             MyRichTextBox textBox = new MyRichTextBox();
 
             textBox.Click += myRichTextBox_Clicked;
-            textBox.uniqueID = boxCounter;
+            
             textBox.Location = new Point(100, 100);
             textBox.Size = new Size(PreAdjX, PreAdjY);
             Debug.WriteLine(textBox.Location);
 
             this.Controls.Add(textBox);
             ListOfTextBox.Add(textBox);
+            textBox.uniqueID = ListOfTextBox.Count - 1;
 
-            boxCounter++;
+           
 
 
         }
@@ -157,11 +162,12 @@ namespace whiteboard
 
                             lastClickedBox.Dispose();
 
-                            boxCounter--;
+                            
 
                             lastClickedBox = null;
                             break;
                         case Keys.M:
+                            
                             int boxAdjX = PreAdjX / 2;
                             int boxAdjy = PreAdjY / 2;
 
@@ -280,7 +286,7 @@ namespace whiteboard
         internal void ArraySanityCheck()
         {
            
-            //this functions purpose is to loop through the array in a for loop then invoke anything that needs to be changed
+            //this functions purpose is to loop through the array in a for loop then invoke anything that needs to be changed -- not optimal at all who thought this was a good idea
             for (int i = 0; i < ListOfTextBox.Count; i++)
             {
                 
@@ -288,12 +294,11 @@ namespace whiteboard
                 {
                     if (ListOfTextBox[i].uniqueID >= ListOfTextBox[j].uniqueID )
                     {
-                        boxCounter = 0;
+                        
 
                         foreach(MyRichTextBox r in ListOfTextBox)
                         {
-                            r.uniqueID = boxCounter;
-                            boxCounter++;
+                            r.uniqueID = ListOfTextBox.Count - 1;
                         }
 
 
@@ -318,10 +323,7 @@ namespace whiteboard
 
        
 
-        internal void Console_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 
 }

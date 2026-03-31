@@ -46,7 +46,7 @@
             Console.Size = new Size(350, 225);
             Console.TabIndex = 0;
             Console.Text = "";
-            Console.TextChanged += Console_TextChanged;
+           
             // 
             // Form1
             // 
