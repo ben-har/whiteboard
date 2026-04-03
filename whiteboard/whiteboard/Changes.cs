@@ -26,5 +26,10 @@ namespace whiteboard
     //rewrite some of the code to use switch statements instead of if else chain- from laptop
     //3/28
     //completely reorgnized files moving controls and box math to there own file to help with orginaztion - from laptop
+    //3/31 - 4/2
+    // fixed array bugs by going off the array length instead of box counter
+    // redid controls to be more oginazed
+    // created the move function which allows you to move objects around ( not true movement moves objects around the camera )
+
     
 }

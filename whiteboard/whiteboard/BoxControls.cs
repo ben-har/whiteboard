@@ -50,13 +50,13 @@ namespace whiteboard
                     case Keys.Z:
                         mydel.DelLast(ListOfTextBoxHolder, FormHolder);
                         break;
-                    case Keys.S:
+                    case Keys.F:
                         mysave.saveSate(ListOfTextBoxHolder);
                         break;
-                    case Keys.T:
+                    case Keys.L:
                         mysave.loadState(ListOfTextBoxHolder, FormHolder);
                         break;
-                    case Keys.L:
+                    case Keys.X:
                         Thread SanityCheckThread = new Thread(FormHolder.ArraySanityCheck);
                         SanityCheckThread.Start();
                         break;
