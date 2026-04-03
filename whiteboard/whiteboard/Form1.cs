@@ -19,9 +19,9 @@ namespace whiteboard
 
         save_load SaveFile = new save_load();
 
-        drawingTools drawingFile = new drawingTools(); 
-       
-       
+        drawingTools drawingFile = new drawingTools();
+
+        MovementFile movementFile = new MovementFile();
 
 
         int PreAdjX, PreAdjY;
@@ -34,7 +34,7 @@ namespace whiteboard
 
         }
 
-         
+
         internal class MyRichTextBox : RichTextBox
         {
             public int uniqueID { get; set; } = 0;
@@ -45,7 +45,7 @@ namespace whiteboard
 
         internal void Form1_Load(object sender, EventArgs e)
         {
-           
+
             this.KeyPreview = true;
             this.MouseClick -= boxMath;
             this.MouseClick += boxMath;
@@ -56,15 +56,15 @@ namespace whiteboard
 
             boxcontrolsFile.ReturnVarsFromForm(this, ListOfTextBox);
 
-            consolefile.ReturnConsoleVar(ListOfTextBox, Console ,this );
+            consolefile.ReturnConsoleVar(ListOfTextBox, Console, this);
 
             SaveFile.ValuePassThrough(this);
 
             drawingFile.DrawingValuesPassThrough(this);
 
-
+            movementFile.MovementVarHandler(this, ListOfTextBox, lastClickedBox);
         }
-       
+
 
         internal void mouseCreateTextBox()
         {
@@ -80,7 +80,7 @@ namespace whiteboard
             MyRichTextBox textBox = new MyRichTextBox();
 
             textBox.Click += myRichTextBox_Clicked;
-            
+
             textBox.Location = new Point(LocalCursor.X - boxAdjX, LocalCursor.Y - boxAdjy);
             textBox.Size = new Size(PreAdjX, PreAdjY);
 
@@ -90,38 +90,16 @@ namespace whiteboard
             textBox.uniqueID = ListOfTextBox.Count - 1;
 
 
-           
 
 
 
 
 
 
-
-        }
-        void AutoCompleteBox()
-        {
-            boxcontrolsFile.ReturnVarsFromForm(this, ListOfTextBox);
-
-            int boxAdjX = PreAdjX;
-            int boxAdjy = PreAdjY;
-
-            MyRichTextBox textBox = new MyRichTextBox();
-
-            textBox.Click += myRichTextBox_Clicked;
-            
-            textBox.Location = new Point(100, 100);
-            textBox.Size = new Size(PreAdjX, PreAdjY);
-            Debug.WriteLine(textBox.Location);
-
-            this.Controls.Add(textBox);
-            ListOfTextBox.Add(textBox);
-            textBox.uniqueID = ListOfTextBox.Count - 1;
-
-           
 
 
         }
+       
 
 
 
@@ -132,6 +110,8 @@ namespace whiteboard
 
 
             lastClickedBox = (MyRichTextBox)sender;
+
+            movementFile.LastClickedBoxPassThrough(lastClickedBox);
 
             int tempID = lastClickedBox.uniqueID + 1;
 
@@ -162,12 +142,12 @@ namespace whiteboard
 
                             lastClickedBox.Dispose();
 
-                            
+
 
                             lastClickedBox = null;
                             break;
                         case Keys.M:
-                            
+
                             int boxAdjX = PreAdjX / 2;
                             int boxAdjy = PreAdjY / 2;
 
@@ -179,7 +159,7 @@ namespace whiteboard
                             lastClickedBox = null;
                             break;
                         case Keys.R:
-                            if(PreAdjX != 0)
+                            if (PreAdjX != 0)
                             {
                                 lastClickedBox.Size = new Size(PreAdjX, PreAdjY);
 
@@ -203,7 +183,7 @@ namespace whiteboard
 
         void boxMath(Object Sender, MouseEventArgs e)
         {
-            
+
 
             Point CursorPos = Cursor.Position;
             Point LocalCursor = this.PointToClient(CursorPos);
@@ -255,48 +235,48 @@ namespace whiteboard
         List<Panel> ListOfPanels = new List<Panel>();
         void PlacePanels(Point pointOne, Point pointTwo, bool BreakPoint)
         {
-            
+
 
             Panel panel = new Panel();
-            
+
             panel.BackColor = Color.Black;
 
             panel.Location = BreakPoint ? pointOne : pointTwo;
 
             panel.Size = new Size(10, 10);
-            
+
             this.Controls.Add(panel);
             ListOfPanels.Add(panel);
-            if(!BreakPoint) 
-            { 
-               // Debug.WriteLine("entered");
-                foreach(Panel p in ListOfPanels)
+            if (!BreakPoint)
+            {
+                // Debug.WriteLine("entered");
+                foreach (Panel p in ListOfPanels)
                 {
                     this.Controls.Remove(p);
-                    
+
                 }
-                
+
             }
-        
-                
+
+
         }
 
-       
+
 
         internal void ArraySanityCheck()
         {
-           
+
             //this functions purpose is to loop through the array in a for loop then invoke anything that needs to be changed -- not optimal at all who thought this was a good idea
             for (int i = 0; i < ListOfTextBox.Count; i++)
             {
-                
-                for (int j = i + 1; j < ListOfTextBox.Count  - 1; j++)
-                {
-                    if (ListOfTextBox[i].uniqueID >= ListOfTextBox[j].uniqueID )
-                    {
-                        
 
-                        foreach(MyRichTextBox r in ListOfTextBox)
+                for (int j = i + 1; j < ListOfTextBox.Count - 1; j++)
+                {
+                    if (ListOfTextBox[i].uniqueID >= ListOfTextBox[j].uniqueID)
+                    {
+
+
+                        foreach (MyRichTextBox r in ListOfTextBox)
                         {
                             r.uniqueID = ListOfTextBox.Count - 1;
                         }
@@ -315,15 +295,13 @@ namespace whiteboard
 
 
             }
-            
+
         }
 
-      
+        private void Console_TextChanged(object sender, EventArgs e)
+        {
 
-
-       
-
-       
+        }
     }
 
 }

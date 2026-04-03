@@ -31,39 +31,36 @@ namespace whiteboard
         }
         internal void Console_KeyDown(object sender, KeyEventArgs e)
         {
-            Random rmd = new Random();
-            
-            switch (e.KeyCode)
-            {
-                case Keys.A:
-                    ConsoleVar.Text += $"\nsize of array {ListOfTextBoxVar.Count},";
-                    foreach (MyRichTextBox i in ListOfTextBoxVar)
-                    {
-                        ConsoleVar.Text += $" {i.uniqueID}";
-                    }
-                    break;
-                case Keys.E:
-                    ConsoleVar.Text = ConsoleVar.Text.Length > 0 ? ConsoleVar.Text += $"\n {console_Script}" : console_Script;
+           if(e.Control)
+           {
+                switch (e.KeyCode)
+                {
+                    case Keys.P:
+                        ConsoleVar.Text += $"\nsize of array {ListOfTextBoxVar.Count},";
+                        foreach (MyRichTextBox i in ListOfTextBoxVar)
+                        {
+                            ConsoleVar.Text += $" {i.uniqueID}";
+                        }
+                        break;
+                    case Keys.O:
+                        ConsoleVar.Text = ConsoleVar.Text.Length > 0 ? ConsoleVar.Text += $"\n {console_Script}" : console_Script;
 
-                    break;
-                case Keys.C:
-                    ConsoleVar.Text = string.Empty;
-                    break;
-                case Keys.P:
+                        break;
+                    case Keys.I:
+                        ConsoleVar.Text = string.Empty;
+                        break;
 
-                    foreach(MyRichTextBox i in ListOfTextBoxVar)
-                    {
-                        i.uniqueID = rmd.Next(0 , ListOfTextBoxVar.Count);
-                    }
-                    break;
-                case Keys.V:
-                    Console_Switch();
-                    break;
+                    case Keys.U:
+                        Console_Switch();
+                        break;
 
 
+                        
+
+                }
 
 
-            }
+           }
         }
 
         internal void Console_Switch()
